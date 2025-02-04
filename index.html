@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Skill Tester</title>
+    <style>
+        body {
+            background-color: pink;
+            color: white;
+            text-align: center;
+        }
+        .container {
+            background: lightpink;
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .green { background-color: floralwhite; color: black; }
+        .yellow { background-color: floralwhite; color: black; }
+        .red { background-color: floralwhite; color: black; }
+        .blue { background-color: floralwhite; color: black; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>hello, my name is <span style="color: hotpink;">Mimu</span>! let's test your skill in math.</h2>
+        <p>given:</p>
+        <label>enter a value for <b>a</b>:</label> <br>
+        <input type="number" id="a" /><br> <br>
+        <label>enter a value for <b>b</b>:</label> <br>
+        <input type="number" id="b" /><br>
+        <button class="floralwhite" onclick="calculate('product')">product of a and b</button>
+        <button class="floralwhite" onclick="calculate('power')">a raise to b</button>
+        <button class="floralwhite" onclick="calculate('remainder')">get the remainder</button>
+        <button class="floralwhite" onclick="calculate('equality')">check if a is equal to b</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function calculate(operation) {
+            let a= +document.getElementById('a').value;
+            let b= +document.getElementById('b').value;
+            if (isNaN(a) || isNaN(b)) return document.getElementById('result').innerText = 'enter here...';
+            let operations = {
+                product: a * b,
+                power: a ** b,
+                remainder: a % b,
+                equality: a === b ? 'a is equal to b' : 'a is not equal to b'
+            };
+            document.getElementById('result').innerText = operations[operation];
+        }
+    </script>
+</body>
+</html>
